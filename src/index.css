@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* ============================================================
+   HoneyChain — Design System
+   Premium agri-tech / blockchain / SaaS aesthetic
+   ============================================================ */
+
+@theme {
+  /* Primary — Honey Gold palette */
+  --color-honey-50: #FFF9EB;
+  --color-honey-100: #FFF0CC;
+  --color-honey-200: #FFE099;
+  --color-honey-300: #FFD066;
+  --color-honey-400: #F5B731;
+  --color-honey-500: #D4991A;
+  --color-honey-600: #B07A10;
+  --color-honey-700: #8C5E0A;
+  --color-honey-800: #6B4708;
+  --color-honey-900: #4A3006;
+
+  /* Neutral — Charcoal palette */
+  --color-charcoal-50: #F7F7F8;
+  --color-charcoal-100: #EDEDF0;
+  --color-charcoal-200: #D5D5DB;
+  --color-charcoal-300: #B0B0BA;
+  --color-charcoal-400: #85858F;
+  --color-charcoal-500: #65656E;
+  --color-charcoal-600: #4A4A52;
+  --color-charcoal-700: #353539;
+  --color-charcoal-800: #232327;
+  --color-charcoal-900: #17171A;
+  --color-charcoal-950: #0D0D0F;
+
+  /* Forest Green accent */
+  --color-forest-50: #ECFDF5;
+  --color-forest-100: #D1FAE5;
+  --color-forest-200: #A7F3D0;
+  --color-forest-300: #6EE7B7;
+  --color-forest-400: #34D399;
+  --color-forest-500: #10B981;
+  --color-forest-600: #059669;
+  --color-forest-700: #047857;
+  --color-forest-800: #065F46;
+  --color-forest-900: #064E3B;
+
+  /* Warm Cream */
+  --color-cream-50: #FFFDFB;
+  --color-cream-100: #FDF8F0;
+  --color-cream-200: #F5EDE0;
+
+  /* Font families */
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+/* ---- Global Styles ---- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-charcoal-950 text-charcoal-100 font-sans antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: theme(--color-charcoal-700); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: theme(--color-charcoal-600); }
+
+/* ---- Typography Classes ---- */
+.text-gradient-honey {
+  background: linear-gradient(135deg, var(--color-honey-400), var(--color-honey-300), var(--color-honey-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Glass Morphism ---- */
+.glass {
+  background: rgba(35, 35, 39, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ---- Card Styles ---- */
+.card {
+  @apply bg-charcoal-800/80 border border-charcoal-700/50 rounded-xl;
+}
+
+.card-hover {
+  @apply transition-all duration-300;
+}
+.card-hover:hover {
+  @apply border-honey-500/30 shadow-lg;
+  box-shadow: 0 0 30px rgba(212, 153, 26, 0.05);
+}
+
+/* ---- Glow Effects ---- */
+.glow-honey {
+  box-shadow: 0 0 20px rgba(212, 153, 26, 0.15), 0 0 60px rgba(212, 153, 26, 0.05);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), 0 0 60px rgba(16, 185, 129, 0.05);
+}
+
+/* ---- Honeycomb Pattern ---- */
+.honeycomb-bg {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(212, 153, 26, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+}
+
+/* ---- Gradient Backgrounds ---- */
+.bg-gradient-hero {
+  background: linear-gradient(
+    180deg,
+    var(--color-charcoal-950) 0%,
+    rgba(35, 35, 39, 1) 50%,
+    var(--color-charcoal-950) 100%
+  );
+}
+
+.bg-gradient-card {
+  background: linear-gradient(
+    145deg,
+    rgba(35, 35, 39, 0.9) 0%,
+    rgba(23, 23, 26, 0.9) 100%
+  );
+}
+
+/* ---- Animations ---- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-honey {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-honey { animation: pulse-honey 3s ease-in-out infinite; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-charcoal-800) 25%, var(--color-charcoal-700) 50%, var(--color-charcoal-800) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ---- Blockchain Chain Line ---- */
+.chain-line {
+  background: linear-gradient(180deg, var(--color-honey-500), var(--color-honey-400), var(--color-honey-500));
+  width: 2px;
+}
+
+/* ---- Status indicators ---- */
+.status-dot {
+  @apply w-2.5 h-2.5 rounded-full;
+}
+.status-healthy { @apply bg-emerald-400; }
+.status-warning { @apply bg-amber-400; }
+.status-critical { @apply bg-red-400; }
+
+/* ---- Focus States ---- */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-honey-500;
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: rgba(212, 153, 26, 0.3);
+  color: white;
+}
